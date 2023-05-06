@@ -10,7 +10,7 @@ app = Flask(__name__)
 # loading models
 normalized = pickle.load(open('Normalizing.pkl', 'rb'))
 nn_model= pickle.load(open('PHTmodel.pkl', 'rb'))
-url = 'http://localhost:8080/PHT/Modules/Prediction/predict.php'
+url = 'http://personalhealthtracker.jeevanjyothihall.in/Modules/Prediction/predict.php'
 @app.route('/')
 def home():
     return redirect(url)    
@@ -40,6 +40,4 @@ def predict():
     return redirect(redirect_url) 
 
 if __name__ == "__main__":
-    app.run(debug=True)
-
-
+    app.run(debug=True,host='0.0.0.0')
